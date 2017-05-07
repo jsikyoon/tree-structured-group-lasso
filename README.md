@@ -17,15 +17,16 @@ MNIST Dataset Representation
 MNIST Dataset Representation with Tree Structured Group LASSO. 
 
 ### Setting
-The number of atoms is 30, in which, 0~9 is root group, 10~19 and 20~29 are reaf groups. Each reaf group has hierarchical relationship with root group.
+The number of atoms is 30, in which, 0-9 is root group, 10-19 and 20-29 are reaf groups. Each reaf group has hierarchical relationship with root group.
 
 You can run the code as followed command.
 
 `
-python mnist_hsc.py
+python mnist_tsgl.py
 `
 
 ### Results
-You can check Tree Structured Group LASSO in printed logs.
+You can check Tree Structured relationship in printed logs.
+(If parent is zeros, then every children are also zeros. If one of children is zeros, then every nodes in upper groups are also zeros.)
 
 ![alt tag](https://github.com/jaesik817/hsc/blob/master/figures/tsgl_result.PNG)
