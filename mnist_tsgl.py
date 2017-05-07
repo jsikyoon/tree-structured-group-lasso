@@ -6,7 +6,7 @@ import argparse
 import sys
 
 import input_data
-import hsc
+import tsgl
 import numpy as np
 import time
 
@@ -21,7 +21,7 @@ def train(group):
   tr_data, tr_label = mnist.train.next_batch(mnist.train._num_examples);
   # Dictionary Initialization
   M=len(tr_data[0]);
-  D=hsc.dict_initializer(M,FLAGS.P);
+  D=tsgl.dict_initializer(M,FLAGS.P);
   # Learning
   lr=FLAGS.learning_rate; pre_mse=10;
   for i in range(1,FLAGS.max_steps+1):
@@ -32,10 +32,10 @@ def train(group):
     if(i%FLAGS.decay_num==0):
       lr=lr/float(FLAGS.decay_rate);
     # Sparse Coding
-    A=hsc.sparse_coding(D,batch,FLAGS,group);
+    A=tsgl.sparse_coding(D,batch,FLAGS,group);
     print(A[:,0]);print(A[:,1]);
     # Dictionary Learning
-    D=hsc.dictionary_learning(D,batch,A,lr,FLAGS);
+    D=tsgl.dictionary_learning(D,batch,A,lr,FLAGS);
     loss=np.linalg.norm(np.matmul(D,A)-batch,axis=0);mse=np.mean(loss);
     print(str(i)+"th MSE: "+str(mse));
     mse_diff=abs(mse-pre_mse);

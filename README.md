@@ -1,7 +1,7 @@
-Hierarchical Sparse Coding
+Tree Structured Group LASSO
 ===========
 
-Python Implementation of Hierarchical Sparse Coding.
+Python Implementation of Tree Structured Group LASSO.
 
 http://www.jmlr.org/papers/volume12/jenatton11a/jenatton11a.pdf
 
@@ -11,3 +11,21 @@ http://icml2010.haifa.il.ibm.com/papers/416.pdf
 
 ![alt tag](https://github.com/jaesik817/hsc/blob/master/figures/tsgl.PNG)
 
+MNIST Dataset Representation
+-----------
+
+MNIST Dataset Representation with Tree Structured Group LASSO. 
+
+### Setting
+The number of atoms is 30, in which, 0~9 is root group, 10~19 and 20~29 are reaf groups. Each reaf group has hierarchical relationship with root group.
+
+You can run the code as followed command.
+
+`
+python mnist_hsc.py
+`
+
+### Results
+You can check Tree Structured Group LASSO in printed logs.
+
+![alt tag](https://github.com/jaesik817/hsc/blob/master/figures/tsgl_result.PNG)
